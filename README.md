@@ -4,3 +4,5 @@ Create an interlocking, multi‑layer puzzle chain. Outsmart rival teams. Surfac
 <img width="973" height="473" alt="grafik" src="https://github.com/user-attachments/assets/03077a9b-33bb-4163-9580-59fc44b17585" />
 
 EN / DE
+
+Note: The idea for this project was to create a semester break challenge based on the internet phenomen cicada3301 for different small teams.
