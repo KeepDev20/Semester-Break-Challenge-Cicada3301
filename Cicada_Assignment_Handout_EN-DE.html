@@ -1,0 +1,507 @@
+<!doctype html>
+        <!-- Source: github.com/zeittresor -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cicada‑Style Semester Assignment — Bilingual Handout</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --panel:#111826; --muted:#a0aec0; --text:#e6ebf3; --acc:#40e0d0; --acc2:#9b5cff;
+      --card:#0f172a; --border:#223047; --ok:#3ddc97; --warn:#ffb703; --bad:#ef476f;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(1200px 800px at 15% -10%, #121a2b, #090d13),linear-gradient(60deg,#0b0f14,#0b0f14);color:var(--text);
+         font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    a{color:var(--acc)} a:hover{color:#7ff3e6}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;background:rgba(9,13,19,.8);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+    .brand{font-weight:800;letter-spacing:.4px}
+    .menu{display:flex;gap:16px;flex-wrap:wrap}
+    .menu a{padding:8px 10px;border:1px solid transparent;border-radius:10px;color:var(--muted);text-decoration:none}
+    .menu a:hover{border-color:var(--border);color:var(--text)}
+    .lang{display:flex;gap:8px;align-items:center}
+    .lang button{padding:6px 10px;border:1px solid var(--border);border-radius:10px;background:transparent;color:var(--muted);cursor:pointer}
+    .lang button.active{border-color:var(--acc);color:var(--text)}
+    .hero{padding:48px 24px 12px}
+    .hero h1{font-size:clamp(28px,5vw,46px);margin:0 0 8px}
+    .hero p{color:var(--muted);max-width:900px;margin:0}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin:24px 0}
+    .card{background:linear-gradient(180deg,rgba(19,27,44,.7),rgba(12,17,27,.7));border:1px solid var(--border);border-radius:16px;padding:20px}
+    .span-6{grid-column:span 6}
+    .span-4{grid-column:span 4}
+    .span-8{grid-column:span 8}
+    .span-12{grid-column:span 12}
+    h2{font-size:clamp(22px,3.5vw,32px);margin:0 0 10px}
+    h3{font-size:18px;margin:18px 0 8px;color:#d5ddf1}
+    p{line-height:1.65}
+    ul{margin:10px 0 0 20px}
+    li{margin:6px 0}
+    .table{width:100%;border-collapse:collapse;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .table th,.table td{border-bottom:1px solid var(--border);padding:10px 12px;text-align:left}
+    .table th{background:#0e1525;color:#c9d6f0}
+    .table tr:nth-child(2n){background:#0c131f}
+    .image-banner{border-radius:16px;overflow:hidden;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;background:#0c131f;height:280px}
+    .cicada-svg{width:90%;max-width:520px;height:auto;opacity:.9}
+    .tag{display:inline-block;padding:4px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px;margin-right:8px}
+    footer{color:var(--muted);border-top:1px solid var(--border);margin-top:40px;padding:20px}
+    @media print{
+      header,.image-banner{display:none}
+      body{background:#fff;color:#000}
+      a{color:#000}
+      .card{border-color:#000;background:#fff}
+      .table th{background:#eee;color:#000}
+      .table tr:nth-child(2n){background:#f7f7f7}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="brand" id="brand">Interdisciplinary Puzzle Lab</div>
+    <nav class="menu">
+      <a href="#overview" data-i="nav_overview">Overview</a>
+      <a href="#groups" data-i="nav_groups">Teams & Roles</a>
+      <a href="#rules" data-i="nav_rules">Rules</a>
+      <a href="#spec" data-i="nav_spec">Task Spec</a>
+      <a href="#mis" data-i="nav_misdirection">Misdirection Case Studies</a>
+      <a href="#timeline" data-i="nav_timeline">Timeline</a>
+      <a href="#deliverables" data-i="nav_deliverables">Deliverables</a>
+      <a href="#evaluation" data-i="nav_evaluation">Evaluation</a>
+      <a href="#tools" data-i="nav_tools">Tools & Resources</a>
+      <a href="#ethics" data-i="nav_ethics">Ethics & Conduct</a>
+      <a href="#faq" data-i="nav_faq">FAQ</a>
+      <a href="#appendix" data-i="nav_appendix">Appendix</a>
+    </nav>
+    <div class="lang">
+      <span data-i="language">Language</span>:
+      <button id="btn-en" class="active">EN</button>
+      <button id="btn-de">DE</button>
+    </div>
+  </div>
+</header>
+
+<section class="container hero">
+  <h1 id="hero_title">Semester Break Challenge: Design • Deceive • Discover</h1>
+  <p id="hero_sub">Create an interlocking, multi‑layer puzzle chain. Outsmart rival teams. Surface the group that sees the whole.</p>
+</section>
+
+<section class="container" id="overview">
+  <div class="grid">
+    <div class="card span-8">
+      <h2 data-i="overview_h">Overview</h2>
+      <p id="overview_p1">In this assignment, each team designs exactly one stage of a larger puzzle. You receive a defined <em>input</em> and a required <em>output</em>. Your stage must be solvable, auditable, and thematically coherent. Most importantly: stages depend on one another, forcing cross‑team thinking.</p>
+      <p id="overview_p2">You may embed deliberate red‑herrings. However, every misleading element must be documented in your private design dossier and must not violate the <strong>ethics rules</strong>.</p>
+      <div>
+        <span class="tag">cryptography</span>
+        <span class="tag">steganography</span>
+        <span class="tag">OSINT</span>
+        <span class="tag">curriculum design</span>
+      </div>
+    </div>
+    <div class="span-4">
+      <div class="image-banner" aria-hidden="true">
+        <!-- Embedded SVG to keep file fully offline -->
+        <svg class="cicada-svg" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cicada emblem">
+          <rect width="100%" height="100%" fill="#0b0f14"/>
+          <g fill="none" stroke="#40e0d0" stroke-width="2">
+            <path d="M320 160c-30-40-30-80 0-120 30 40 30 80 0 120z"/>
+            <ellipse cx="320" cy="160" rx="180" ry="60"/>
+            <ellipse cx="320" cy="160" rx="120" ry="40"/>
+            <path d="M220 160c-40 20-60 40-80 80M420 160c40 20 60 40 80 80"/>
+            <path d="M240 140c-60-40-80-40-140-40M400 140c60-40 80-40 140-40"/>
+          </g>
+          <text x="50%" y="300" dominant-baseline="middle" text-anchor="middle" font-family="monospace" fill="#9b5cff" font-size="18">CICADA • 3301</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="groups">
+  <div class="grid">
+    <div class="card span-6">
+      <h2 data-i="groups_h">Teams & Roles</h2>
+      <p id="groups_p">Form self‑selected teams of 3–6. Recommended roles: Puzzle Architect, Cryptography Lead, OSINT/Research, QA/Playtest, Documentation, DevOps (hosting, mirrors). Smaller teams may combine roles.</p>
+      <ul id="groups_list"></ul>
+    </div>
+    <div class="span-6">
+      <div class="image-banner" aria-hidden="true">
+        <svg class="cicada-svg" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cicada emblem 2">
+          <rect width="100%" height="100%" fill="#0b0f14"/>
+          <g fill="none" stroke="#9b5cff" stroke-width="2">
+            <circle cx="320" cy="160" r="90"/>
+            <path d="M160 160h320M320 0v320"/>
+            <path d="M230 110c60 30 120 30 180 0M230 210c60-30 120-30 180 0"/>
+          </g>
+          <text x="50%" y="300" dominant-baseline="middle" text-anchor="middle" font-family="monospace" fill="#40e0d0" font-size="18">PUZZLE • LAB</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="rules">
+  <div class="card">
+    <h2 data-i="rules_h">Rules</h2>
+    <ul id="rules_list"></ul>
+  </div>
+</section>
+
+<section class="container" id="spec">
+  <div class="card">
+    <h2 data-i="spec_h">Task Specification</h2>
+    <p id="spec_p">Your stage must include:</p>
+    <ul id="spec_list"></ul>
+  </div>
+</section>
+
+<section class="container" id="mis">
+  <div class="card">
+    <h2 data-i="mis_h">Misdirection Case Studies (illustrative)</h2>
+    <p id="mis_intro">Below are example tactics teams historically used to nudge rivals onto elegant dead‑ends. Use ethically; document all decoys.</p>
+    <div class="grid" id="mis_cards"></div>
+  </div>
+</section>
+
+<section class="container" id="timeline">
+  <div class="card">
+    <h2 data-i="timeline_h">Timeline</h2>
+    <table class="table" id="timeline_table">
+      <thead><tr><th>—</th><th id="milestones_head">Milestones</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="container" id="deliverables">
+  <div class="card">
+    <h2 data-i="deliv_h">Deliverables</h2>
+    <ul id="deliv_list"></ul>
+  </div>
+</section>
+
+<section class="container" id="evaluation">
+  <div class="card">
+    <h2 data-i="eval_h">Evaluation (100 pts)</h2>
+    <table class="table" id="eval_table">
+      <thead>
+        <tr><th id="crit_head">Criterion</th><th id="desc_head">Description</th><th style="width:90px;">Pts</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="container" id="tools">
+  <div class="card">
+    <h2 data-i="tools_h">Tools & Resources</h2>
+    <p id="tools_p">Suggested stacks (non‑exclusive): Python (cryptography, Pillow), Go/Rust for verifiers, Git for versioning, image/audio editors, and safe hosting (Netlify, university servers).</p>
+    <ul>
+      <li>GitHub Classroom / GitLab groups; private repos during the silence window.</li>
+      <li id="ver_templates">Verifier templates: <code>Python/Flask</code>, <code>Go/Fasthttp</code>, <code>Rust/Actix</code></li>
+      <li id="chk_tools">Checksum tools: <code>sha256sum</code>, <code>shasum</code>, <code>certutil</code></li>
+      <li id="media_tools">Media: GIMP, Inkscape, Audacity, ffmpeg</li>
+    </ul>
+  </div>
+</section>
+
+<section class="container" id="ethics">
+  <div class="card">
+    <h2 data-i="ethics_h">Ethics & Conduct</h2>
+    <ul id="ethics_list"></ul>
+  </div>
+</section>
+
+<section class="container" id="faq">
+  <div class="card">
+    <h2 data-i="faq_h">FAQ</h2>
+    <div class="grid" id="faq_grid"></div>
+  </div>
+</section>
+
+<section class="container" id="appendix">
+  <div class="grid">
+    <div class="card span-8">
+      <h2 data-i="appendix_h">Appendix: Sample Stage Contract</h2>
+      <p id="appendix_pre"><code>Input:</code> SHA‑256 of the correct page from Blake’s <em>Proverbs of Hell</em> (edition fixed). <code>Output:</code> base32 key (20 chars). Mechanic: book‑cipher → Vigenère (key from EXIF tz offset). Verifier: /verify?token=… (rate‑limit 5/min).</p>
+      <h3 id="gallery_h">Reference Imagery & Reading</h3>
+      <p id="gallery_note">Offline edition: add external links when you have connectivity.</p>
+      <ul>
+        <li><em>Offline edition</em> contains no external links. Add your own when you have connectivity.</li>
+      </ul>
+    </div>
+    <div class="span-4">
+      <div class="image-banner" aria-hidden="true">
+        <svg class="cicada-svg" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cicada emblem 3">
+          <rect width="100%" height="100%" fill="#0b0f14"/>
+          <g fill="none" stroke="#40e0d0" stroke-width="2">
+            <polygon points="320,40 360,140 320,160 280,140"/>
+            <path d="M220 200c40-20 80-20 100 0 20-20 60-20 100 0"/>
+            <ellipse cx="320" cy="220" rx="160" ry="40"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="container">
+  <small id="footer_small">© 2025 Interdisciplinary Puzzle Lab. For academic use only.</small>
+</footer>
+
+<script>
+const tr = {
+  meta_title:{en:'Cicada‑Style Semester Assignment — Bilingual Handout (Offline)',de:'Cicada‑Stil Semesteraufgabe — Zweisprachiges Handout (Offline)'},
+  brand:{en:'Interdisciplinary Puzzle Lab',de:'Interdisziplinäres Rätsel‑Labor'},
+  language:{en:'Language',de:'Sprache'},
+  nav_overview:{en:'Overview',de:'Übersicht'},
+  nav_groups:{en:'Teams & Roles',de:'Teams & Rollen'},
+  nav_rules:{en:'Rules',de:'Regeln'},
+  nav_spec:{en:'Task Spec',de:'Aufgabenspezifikation'},
+  nav_misdirection:{en:'Misdirection Case Studies',de:'Irreführung: Fallbeispiele'},
+  nav_timeline:{en:'Timeline',de:'Zeitplan'},
+  nav_deliverables:{en:'Deliverables',de:'Abgaben'},
+  nav_evaluation:{en:'Evaluation',de:'Bewertung'},
+  nav_tools:{en:'Tools & Resources',de:'Tools & Ressourcen'},
+  nav_ethics:{en:'Ethics & Conduct',de:'Ethik & Verhalten'},
+  nav_faq:{en:'FAQ',de:'FAQ'},
+  nav_appendix:{en:'Appendix',de:'Anhang'},
+  hero_title:{en:'Semester Break Challenge: Design • Deceive • Discover',de:'Semesterferien‑Challenge: Entwerfen • Täuschen • Entdecken'},
+  hero_sub:{en:'Create an interlocking, multi‑layer puzzle chain. Outsmart rival teams. Surface the group that sees the whole.',de:'Entwirf eine verzahnte, mehrschichtige Rätselkette. Überliste andere Teams. Finde die Gruppe, die das Ganze überblickt.'},
+  overview_h:{en:'Overview',de:'Übersicht'},
+  overview_p1:{en:'In this assignment, each team designs exactly one stage of a larger puzzle. You receive a defined <em>input</em> and a required <em>output</em>. Your stage must be solvable, auditable, and thematically coherent. Most importantly: stages depend on one another, forcing cross‑team thinking.',de:'In dieser Aufgabe entwirft jedes Team genau eine Stufe eines größeren Puzzles. Ihr erhaltet eine definierte <em>Eingabe</em> und ein gefordertes <em>Ergebnis</em>. Eure Stufe muss lösbar, prüfbar und thematisch stimmig sein. Wichtig: Die Stufen hängen voneinander ab und erzwingen teamübergreifendes Denken.'},
+  overview_p2:{en:'You may embed deliberate red‑herrings. However, every misleading element must be documented in your private design dossier and must not violate the <strong>ethics rules</strong>.',de:'Ihr dürft gezielte Irreführungen einbauen. Allerdings muss jedes irreführende Element in eurem privaten Designdossier dokumentiert sein und darf nicht gegen die <strong>Ethikregeln</strong> verstoßen.'},
+  groups_h:{en:'Teams & Roles',de:'Teams & Rollen'},
+  groups_p:{en:'Form self‑selected teams of 3–6. Recommended roles: Puzzle Architect, Cryptography Lead, OSINT/Research, QA/Playtest, Documentation, DevOps (hosting, mirrors). Smaller teams may combine roles.',de:'Bildet selbstgewählte Teams von 3–6 Personen. Empfohlene Rollen: Puzzle‑Architekt:in, Krypto‑Lead, OSINT/Recherche, QA/Playtest, Dokumentation, DevOps (Hosting, Mirrors). Kleinere Teams dürfen Rollen bündeln.'},
+  groups_list:{en:[
+    'Each team receives: (a) an <strong>Input Artifact</strong> (e.g., book page hash, image EXIF, GPS pair) and (b) a <strong>Target Output</strong> (e.g., a 43‑char token).',
+    'Teams know neither the upstream nor downstream stages. Design assuming adversarial interpretation.',
+    'Your stage should be solvable within 2–6 hours by a capable group, assuming clean reasoning.',
+    'Cross‑team collaboration is not banned, but direct disclosure of private dossiers is prohibited.'
+  ],de:[
+    'Jedes Team erhält: (a) ein <strong>Eingabeartefakt</strong> (z. B. Buchseiten‑Hash, Bild‑EXIF, GPS‑Paar) und (b) ein <strong>Ziel‑Output</strong> (z. B. ein 43‑Zeichen‑Token).',
+    'Teams kennen weder die vorherige noch die folgende Stufe. Entwickelt unter der Annahme gegnerischer Interpretation.',
+    'Eure Stufe soll von einer fähigen Gruppe in 2–6 Stunden lösbar sein – bei sauberem Denken.',
+    'Teamübergreifende Zusammenarbeit ist nicht verboten, aber die Weitergabe privater Dossiers ist untersagt.'
+  ]},
+  rules_h:{en:'Rules',de:'Regeln'},
+  rules_list:{en:[
+    'Single, verifiable solution for each stage; provide a grader script or step‑by‑step solution.',
+    'Document any red‑herrings; no doxxing, harassment, illegal access, or unsafe venues.',
+    'Use only publicly accessible datasets or original content with clear attribution/license.',
+    'No mass‑messaging the public; any physical placement must be lawful and reversible.',
+    'Silence policy: no public posts, videos, or write‑ups until the debrief date.',
+    'Accessibility: provide an alternate path or hint for color‑blind or assistive tech users.'
+  ],de:[
+    'Eine eindeutige, prüfbare Lösung pro Stufe; liefere Grader‑Script oder Schritt‑für‑Schritt‑Lösung.',
+    'Dokumentiere alle Irreführungen; kein Doxxing, keine Belästigung, kein illegaler Zugriff, keine unsicheren Orte.',
+    'Nur öffentlich zugängliche Datensätze oder eigene Inhalte mit klarer Attribution/Lizenz verwenden.',
+    'Kein Massen‑Anschreiben der Öffentlichkeit; physische Platzierungen müssen legal und rückstandsfrei sein.',
+    'Schweigepflicht: keine öffentlichen Posts, Videos oder Write‑ups bis zum Debrief‑Datum.',
+    'Barrierefreiheit: alternative Pfade/Hinweise für Farbfehlsicht und Assistive‑Tech bereitstellen.'
+  ]},
+  spec_h:{en:'Task Specification',de:'Aufgabenspezifikation'},
+  spec_p:{en:'Your stage must include:',de:'Deine Stufe muss enthalten:'},
+  spec_list:{en:[
+    'Theme hook (e.g., poem line, historical inscription).',
+    'Primary mechanic (e.g., Vigenère variant, image LSB stego, book cipher).',
+    'Input contract and output contract (exact format, length, charset).',
+    'At least one <em>signal</em> that distinguishes the correct path from attractive decoys.',
+    'A <strong>validation artifact</strong> (checksum, signature, or verifier URL with rate‑limit).',
+    'A <strong>private design dossier</strong> (PDF/Markdown) with full rationale and solution.'
+  ],de:[
+    'Themen‑Hook (z. B. Verszeile, historische Inschrift).',
+    'Primärmechanik (z. B. Vigenère‑Variante, Bild‑LSB‑Stego, Buchchiffre).',
+    'Input‑ und Output‑Vertrag (genaues Format, Länge, Zeichensatz).',
+    'Mindestens ein <em>Signal</em>, das den richtigen Pfad von verlockenden Ablenkungen trennt.',
+    'Ein <strong>Validierungsartefakt</strong> (Prüfsumme, Signatur oder Verifier‑URL mit Rate‑Limit).',
+    'Ein <strong>privates Designdossier</strong> (PDF/Markdown) mit vollständiger Begründung und Lösung.'
+  ]},
+  mis_h:{en:'Misdirection Case Studies (illustrative)',de:'Irreführung: Fallbeispiele (illustrierend)'},
+  mis_intro:{en:'Below are example tactics teams historically used to nudge rivals onto elegant dead‑ends. Use ethically; document all decoys.',de:'Nachfolgend Beispiel‑Taktiken, mit denen Teams historisch Rivalen in elegante Sackgassen lenkten. Ethisch einsetzen; alle Ablenkungen dokumentieren.'},
+  mis_cards:{en:[
+    ['Psychological Framing','Seed a quote that flatters a rival’s known interests (e.g., occult lines) but hashes to the wrong book edition unless they checksum the source.'],
+    ['Signal vs. Noise','Hide a tiny checksum mismatch in a widely shared image; only careful solvers notice the EXIF time‑zone offset that fixes the key.'],
+    ['Collaboration Trap','A clue that seems to demand many solvers (e.g., crowd OCR) but is solvable solo if one spots a monospace alignment cue.'],
+    ['Map Illusion','GPS looks like locations; actually it encodes a cipher key via lat/long deltas when sorted by UTC capture time.']
+  ],de:[
+    ['Psychologischer Frame','Zitiere etwas, das die Interessen der Rivalen schmeichelt (z. B. okkulte Zeilen), das jedoch auf die falsche Buchausgabe zeigt – es fällt erst auf, wenn Checksummen geprüft werden.'],
+    ['Signal vs. Rauschen','Verstecke eine minimale Prüfsummen‑Abweichung in einem verbreiteten Bild; nur sorgfältige Löser:innen bemerken den EXIF‑Zeitzonen‑Versatz, der den Schlüssel korrigiert.'],
+    ['Kooperationsfalle','Ein Hinweis wirkt so, als brauche er viele Leute (z. B. Crowd‑OCR), ist aber solo lösbar, wenn man einen Monospace‑Ausrichtungs‑Hinweis erkennt.'],
+    ['Karten‑Illusion','GPS wirkt wie Orte; tatsächlich codiert es über Lat/Lon‑Deltas den Schlüssel, wenn man nach UTC‑Aufnahmezeit sortiert.']
+  ]},
+  timeline_h:{en:'Timeline',de:'Zeitplan'},
+  timeline_items:{en:[
+    ['Week 1','Kickoff, team forming, input/output contracts issued'],
+    ['Week 2–4','Design & prototyping, ethical review check‑in'],
+    ['Week 5','Internal playtest with a blinded peer team'],
+    ['Week 6','Finalize stage, submit dossier & verifier'],
+    ['Week 7–8','Integrated chain run, leaderboard, debrief prep'],
+    ['Week 9','Debrief (closed), postmortems published to class']
+  ],de:[
+    ['Woche 1','Kick‑off, Teambildung, Input/Output‑Verträge'],
+    ['Woche 2–4','Design & Prototyping, Ethik‑Check‑in'],
+    ['Woche 5','Interner Playtest mit blindem Peer‑Team'],
+    ['Woche 6','Finalisierung, Dossier & Verifier einreichen'],
+    ['Woche 7–8','Integrierter Lauf, Rangliste, Debrief‑Vorbereitung'],
+    ['Woche 9','Debrief (geschlossen), Postmortems nur für Kurs']
+  ]},
+  deliv_h:{en:'Deliverables',de:'Abgaben'},
+  deliv_list:{en:[
+    'Stage package (all artifacts, inputs, outputs, assets).',
+    'Verifier (script/service) with README and rate‑limit.',
+    'Design dossier (PDF/MD) incl. solution and documented red‑herrings.',
+    'Accessibility note and alternative pathway description.',
+    'Postmortem (2–4 pages): what worked, what failed, lessons learned.'
+  ],de:[
+    'Stufen‑Paket (alle Artefakte, Inputs, Outputs, Assets).',
+    'Verifier (Script/Service) mit README und Rate‑Limit.',
+    'Designdossier (PDF/MD) inkl. Lösung und dokumentierten Irreführungen.',
+    'Barrierefreiheits‑Notiz und alternative Pfadbeschreibung.',
+    'Post‑Mortem (2–4 Seiten): Was funktionierte, was nicht, Learnings.'
+  ]},
+  eval_h:{en:'Evaluation (100 pts)',de:'Bewertung (100 P.)'},
+  eval_rows:{en:[
+    ['Solvability & Rigor','Clear path, verifiable logic, no ambiguity','30'],
+    ['Interdependence','Meaningful links to other stages (inputs/outputs)','15'],
+    ['Creativity','Original theme/mechanics; elegant reveals','15'],
+    ['Ethics & Safety','Compliance with rules; responsible design','15'],
+    ['Misdirection Quality','Decoys are fair, documented, and avoid harm','10'],
+    ['Documentation','Dossier clarity, verifier quality, README','15']
+  ],de:[
+    ['Lösbarkeit & Strenge','Klarer Pfad, prüfbare Logik, keine Mehrdeutigkeit','30'],
+    ['Verzahnung','Sinnvolle Verknüpfungen mit anderen Stufen','15'],
+    ['Kreativität','Originelles Thema/Mechanik; elegante Enthüllungen','15'],
+    ['Ethik & Sicherheit','Regelkonformität; verantwortungsvolles Design','15'],
+    ['Irreführung – Qualität','Faire, dokumentierte Ablenkungen ohne Schaden','10'],
+    ['Dokumentation','Dossier‑Klarheit, Verifier‑Qualität, README','15']
+  ]},
+  tools_h:{en:'Tools & Resources',de:'Tools & Ressourcen'},
+  tools_p:{en:'Suggested stacks (non‑exclusive): Python (cryptography, Pillow), Go/Rust for verifiers, Git for versioning, image/audio editors, and safe hosting (Netlify, university servers).',de:'Vorgeschlagene Stacks (nicht exklusiv): Python (cryptography, Pillow), Go/Rust für Verifier, Git für Versionierung, Bild/Audio‑Editoren und sicheres Hosting (Netlify, Uni‑Server).'},
+  ethics_h:{en:'Ethics & Conduct',de:'Ethik & Verhalten'},
+  ethics_list:{en:[
+    'No personal data harvesting, no stalking, no lock‑picking, no trespass.',
+    'No public panic: avoid misleading emergency symbols or sensitive sites.',
+    'Credit authorship; observe licenses when embedding or linking media.',
+    'Graceful failure: provide hint gates to prevent solver burnout.'
+  ],de:[
+    'Keine Erhebung persönlicher Daten, kein Stalking, kein Lock‑Picking, kein Hausfriedensbruch.',
+    'Keine öffentliche Panik: keine Notfall‑Symbole oder sensible Orte missbrauchen.',
+    'Urheberschaft angeben; beim Einbetten/Verlinken von Medien Lizenzen beachten.',
+    'Sanftes Scheitern: Hint‑Gates bereitstellen, um Frust zu vermeiden.'
+  ]},
+  faq_h:{en:'FAQ',de:'FAQ'},
+  faq_items:{en:[
+    ['Can we collaborate across teams?','You may, but you must not share private dossiers or solutions verbatim. Collaboration should emerge from inference, not leakage.'],
+    ['Are physical clues required?','No. If used, they must be lawful, safe, and reversible with photos and coordinates documented.'],
+    ['What if a stage becomes unsolvable?','Provide a failsafe hint via the verifier after N incorrect attempts or after a time window.'],
+    ['What counts as a fair red‑herring?','It should be attractive yet defeatable by method (checksums, provenance, units), not by luck. Document it.']
+  ],de:[
+    ['Dürfen wir teamübergreifend kooperieren?','Ja, aber keine wörtliche Weitergabe privater Dossiers oder Lösungen. Kooperation soll aus Schlussfolgerungen entstehen, nicht aus Leaks.'],
+    ['Sind physische Hinweise Pflicht?','Nein. Wenn genutzt, müssen sie legal, sicher und rückstandsfrei sein; Fotos und Koordinaten dokumentieren.'],
+    ['Was, wenn eine Stufe unlösbar wird?','Stellt einen Failsafe‑Hint im Verifier bereit – nach N Fehlversuchen oder nach einem Zeitfenster.'],
+    ['Was ist eine faire Irreführung?','Attraktiv, aber methodisch widerlegbar (Checksummen, Herkunft, Maßeinheiten) – nicht glücksabhängig. Dokumentation Pflicht.']
+  ]},
+  appendix_h:{en:'Appendix: Sample Stage Contract',de:'Anhang: Beispiel‑Stufenvertrag'},
+  appendix_pre:{en:'<code>Input:</code> SHA‑256 of the correct page from Blake’s <em>Proverbs of Hell</em> (edition fixed). <code>Output:</code> base32 key (20 chars). Mechanic: book‑cipher → Vigenère (key from EXIF tz offset). Verifier: /verify?token=… (rate‑limit 5/min).',de:'<code>Input:</code> SHA‑256 der korrekten Seite aus Blakes <em>Proverbs of Hell</em> (Ausgabe fest). <code>Output:</code> Base32‑Schlüssel (20 Zeichen). Mechanik: Buchchiffre → Vigenère (Schlüssel aus EXIF‑TZ‑Versatz). Verifier: /verify?token=… (Rate‑Limit 5/Min).'},
+  gallery_h:{en:'Reference Imagery & Reading',de:'Referenz‑Bilder & Lektüre'},
+  gallery_note:{en:'Offline edition: add external links when you have connectivity.',de:'Offline‑Edition: Externe Links bei Bedarf selbst ergänzen.'},
+  footer_small:{en:'© 2025 Interdisciplinary Puzzle Lab. For academic use only.',de:'© 2025 Interdisziplinäres Rätsel‑Labor. Nur für akademische Zwecke.'},
+  milestones_head:{en:'Milestones',de:'Meilensteine'},
+  crit_head:{en:'Criterion',de:'Kriterium'},
+  desc_head:{en:'Description',de:'Beschreibung'},
+  ver_templates:{en:'Verifier templates: ',de:'Verifier‑Vorlagen: '},
+  chk_tools:{en:'Checksum tools: ',de:'Checksummen‑Tools: '},
+  media_tools:{en:'Media: ',de:'Medien: '},
+};
+
+let lang = 'en';
+function applyLang(l){
+  lang = l;
+  document.title = tr.meta_title[l];
+  document.getElementById('brand').textContent = tr.brand[l];
+  document.querySelector('[data-i="language"]').textContent = tr.language[l];
+  document.getElementById('hero_title').textContent = tr.hero_title[l];
+  document.getElementById('hero_sub').textContent = tr.hero_sub[l];
+  document.querySelectorAll('[data-i]').forEach(el => { el.textContent = tr[el.getAttribute('data-i')][l]; });
+  document.getElementById('overview_p1').innerHTML = tr.overview_p1[l];
+  document.getElementById('overview_p2').innerHTML = tr.overview_p2[l];
+  document.getElementById('groups_p').textContent = tr.groups_p[l];
+  fillList('groups_list', tr.groups_list[l]);
+  fillList('rules_list', tr.rules_list[l]);
+  document.getElementById('spec_p').textContent = tr.spec_p[l];
+  fillList('spec_list', tr.spec_list[l]);
+  document.getElementById('mis_intro').textContent = tr.mis_intro[l];
+  fillCards('mis_cards', tr.mis_cards[l]);
+  fillTimeline(tr.timeline_items[l]);
+  document.getElementById('milestones_head').textContent = tr.milestones_head[l];
+  document.querySelector('#evaluation h2').textContent = tr.eval_h[l];
+  fillEval(tr.eval_rows[l]);
+  document.querySelector('#tools h2').textContent = tr.tools_h[l];
+  document.getElementById('tools_p').textContent = tr.tools_p[l];
+  document.querySelector('#ethics h2').textContent = tr.ethics_h[l];
+  fillList('ethics_list', tr.ethics_list[l]);
+  document.querySelector('#faq h2').textContent = tr.faq_h[l];
+  fillFAQ('faq_grid', tr.faq_items[l]);
+  document.querySelector('#appendix h2').textContent = tr.appendix_h[l];
+  document.getElementById('appendix_pre').innerHTML = tr.appendix_pre[l];
+  document.getElementById('gallery_h').textContent = tr.gallery_h[l];
+  document.getElementById('gallery_note').textContent = tr.gallery_note[l];
+  document.getElementById('footer_small').textContent = tr.footer_small[l];
+  document.getElementById('crit_head').textContent = tr.crit_head[l];
+  document.getElementById('desc_head').textContent = tr.desc_head[l];
+  document.getElementById('ver_templates').childNodes[0].nodeValue = tr.ver_templates[l];
+  document.getElementById('chk_tools').childNodes[0].nodeValue = tr.chk_tools[l];
+  document.getElementById('media_tools').childNodes[0].nodeValue = tr.media_tools[l];
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  document.getElementById('btn-de').classList.toggle('active', l==='de');
+}
+function fillList(id, arr){
+  const ul = document.getElementById(id); ul.innerHTML='';
+  arr.forEach(x => { const li=document.createElement('li'); li.innerHTML=x; ul.appendChild(li); });
+}
+function fillCards(id, arr){
+  const cont = document.getElementById(id); cont.innerHTML='';
+  arr.forEach(([h,p])=>{
+    const card=document.createElement('div'); card.className='card span-6';
+    const H=document.createElement('h3'); H.textContent=h;
+    const P=document.createElement('p'); P.textContent=p;
+    card.appendChild(H); card.appendChild(P); cont.appendChild(card);
+  });
+}
+function fillTimeline(rows){
+  const tbody = document.querySelector('#timeline_table tbody'); tbody.innerHTML='';
+  rows.forEach(([w,desc])=>{
+    const tr = document.createElement('tr');
+    const td1 = document.createElement('td'); td1.style.width='120px'; td1.style.whiteSpace='nowrap'; td1.textContent = w;
+    const td2 = document.createElement('td'); td2.textContent = desc;
+    tr.appendChild(td1); tr.appendChild(td2); tbody.appendChild(tr);
+  });
+}
+function fillEval(rows){
+  const tbody = document.querySelector('#eval_table tbody'); tbody.innerHTML='';
+  rows.forEach(([c,d,p])=>{
+    const tr = document.createElement('tr');
+    const td1 = document.createElement('td'); td1.textContent=c;
+    const td2 = document.createElement('td'); td2.textContent=d;
+    const td3 = document.createElement('td'); td3.textContent=p;
+    tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tbody.appendChild(tr);
+  });
+}
+function fillFAQ(id, items){
+  const grid = document.getElementById(id); grid.innerHTML='';
+  items.forEach(([q,a])=>{
+    const card=document.createElement('div'); card.className='card span-6';
+    const H=document.createElement('h3'); H.textContent=q;
+    const P=document.createElement('p'); P.textContent=a;
+    card.appendChild(H); card.appendChild(P); grid.appendChild(card);
+  });
+}
+document.getElementById('btn-en').addEventListener('click',()=>applyLang('en'));
+document.getElementById('btn-de').addEventListener('click',()=>applyLang('de'));
+applyLang('en');
+</script>
+</body>
+</html>
